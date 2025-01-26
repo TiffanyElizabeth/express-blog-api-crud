@@ -21,7 +21,7 @@ const app = express()
 // definisco all'interno di una costante la porta da utilizzare
 const port = 3000
 // importiamo il router 
-const postsRouter = require('./routers/postsRouter');
+const postsRouter = require('./routers/postRouter');
 
 
 
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 app.use(express.static('public'));
 
 // tramite la funzione use indichiamo a express che esistono nuove rotte (slide 26 express-routing)
-app.use("/posts", postsRouter);
+app.use(".//postRouter", postsRouter);
 
 // una rotta /bacheca che restituisca un oggetto json con la lista dei post (una lista di almeno 5 post, per ognuno indicare titolo, contenuto, immagine e tags (tags è un array di stringhe))
 /*

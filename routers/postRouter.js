@@ -17,10 +17,12 @@ Provare a restituire un singolo post dalla rotta show, sempre in formato json
 
 const express = require('express') //importiamo Express
 const router = express.Router(); // creiamo la variabile "router" 
+const posts = require('../data/postsData'); // importiamo postsData (slide 4 from 31-Express-CRUD)
 
 // index
 router.get('/', function(req, res) {
-    res.send('List of posts');
+    //res.send('List of posts');
+    res.json(posts);
 });
 
 // show
@@ -49,4 +51,4 @@ router.delete('/:id', function(req, res) {
 });
 
 // export router 
-module.exports = router;
+module.exports = router; 

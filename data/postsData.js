@@ -67,4 +67,4 @@ const posts = [
     },
   ];
 
-  module.exports = postsData;
+  module.exports = posts;
