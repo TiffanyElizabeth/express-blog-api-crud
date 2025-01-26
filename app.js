@@ -13,6 +13,8 @@ const postsRouter = require("./router/postsRouter"); // router
 
 app.use(express.static("public")); // middleware per file statici
 
+app.use(express.json()); // middleware to tranform req body i)
+
 app.use("/posts", postsRouter);
 
 app.listen(port, () => {

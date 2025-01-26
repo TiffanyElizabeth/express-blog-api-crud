@@ -22,9 +22,18 @@ const show = (req, res) => {
 }
 
 // create / store
-/*router.post('/', function(req, res) {
-    res.send('New post');
-}); */
+const create = (req, res) => {
+    const id = postsData[postsData.length - 1].id + 1;
+    const newPost = {
+        id: id,
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags,
+    }
+    postsData.push(newPost);
+    res.status(201).json(newPost);
+}
 
 
 // update (replace)
@@ -62,5 +71,6 @@ const destroy = (req, res) => {
 module.exports = {
     index,
     show,
+    create,
     destroy
 }

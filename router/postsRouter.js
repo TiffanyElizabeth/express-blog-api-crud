@@ -11,7 +11,13 @@ router.get("/", postsController.index);
 router.get("/:id", postsController.show);
 
 // create
-router.post("/", () => {});
+router.post("/", postsController.create);
+/*
+router.post('/', function(req, res) {
+    console.log(req.body);
+    res.send('New post');
+});
+*/
 
 // update (replace)
 router.put("/:id", () => {});
