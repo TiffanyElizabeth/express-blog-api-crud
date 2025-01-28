@@ -20,10 +20,10 @@ router.post('/', function(req, res) {
 */
 
 // update (replace)
-router.put("/:id", () => {});
+router.put("/:id", postsController.update);
 
 // modify (edit)
-router.patch("/:id", () => {});
+router.patch("/:id", postsController.modify);
 
 // destroy (delete)
 router.delete("/:id", postsController.destroy);

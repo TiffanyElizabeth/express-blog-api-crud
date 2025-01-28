@@ -40,12 +40,51 @@ const create = (req, res) => {
 /*router.put('/:id', function(req, res) {
     res.send('Replace post' + req.params.id); 
 });*/
+const update = (req, res) => {
+    const id = Number(req.params.id);
+    const post = postsData.find((post) => post.id === id);
+
+    if(!post) { // see slide 20
+        res.status(404)
+        return res.json({
+            error: "Not found",
+            message: "Post not found"
+        })
+    }
+
+    post.title = req.body.title;
+    post.content = req.body.content;
+    post.image = req.body.image;
+    post.tags = req.body.tags; 
+
+    res.json(post);
+}
 
 
 // modify (edit)
 /*router.patch('/:id', function(req, res) {
     res.send('Edit post' + req.params.id);
 });*/
+
+const modify = (req, res) => {
+    const id = Number(req.params.id);
+    const post = postsData.find((post) => post.id === id);
+
+    if(!post) { // see slide 20
+        res.status(404)
+        return res.json({
+            error: "Not found",
+            message: "Post not found"
+        })
+    }
+
+    post.title = req.body.title || post.title;
+    post.content = req.body.content || post.content;
+    post.image = req.body.image || post.image;
+    post.tags = req.body.tags || post.tags; 
+
+    res.json(post);
+}
 
 
 // destroy (delete) see slide 24 of 31-express-crud1, 39min thurs 23 gennaio lesson
@@ -72,5 +111,7 @@ module.exports = {
     index,
     show,
     create,
+    update,
+    modify,
     destroy
 }
