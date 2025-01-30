@@ -2,6 +2,7 @@ const express = require("express"); // import express
 const app = express(); // use function express to start the appliation (web server)
 const port = 3000; // port used to run the application 
 const errorsHandler = require("./middleware/errorsHandler"); //import errors handler middleware 
+const notFound = require("./middleware/notFound"); //import not found middleware
 
 
 // app = webserver, .get = il metodo http su cui voglio restituire la risposta
@@ -21,6 +22,9 @@ app.use("/posts", postsRouter);
 
 // Middleware 500 (slide 18 from 33-Express-Middlewares)
 app.use(errorsHandler);
+
+// Middleware 404 (slide 19 from 33-Express-Middlewares)
+app.use(notFound);
 
 app.listen(port, () => {
   console.log(`App is running on ${port}`);
